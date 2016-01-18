@@ -31,7 +31,7 @@ We can learn SQLite using Firefox's SQLite Manger add-on:
 - Download the course material, and find **data/examples.sqlite** file
 - In **SQLite Manager** click **Database >> Connect Database** and select the **examples.sqlite** file
 - We should be able to see tables in the database and browse data in each table
-![](./firefox2.png)
+![](fig/firefox2.png)
 
 ## Run SQL Query
 
@@ -39,7 +39,7 @@ We can learn SQLite using Firefox's SQLite Manger add-on:
 - Enter SQL query
 - Click **Run SQL**
 
-![](firefox3.png)
+![](fig/firefox3.png)
 
 ## SQLite in R
 We can also connect to SQLite database using R. The R package we need to use is **RSQLite**
@@ -60,7 +60,7 @@ Commonly used functions:
 Connect to database, i.e. examples.sqlite
 ```{r, message=FALSE}
 library(RSQLite)
-con <- dbConnect(RSQLite::SQLite(), "../../data/examples.sqlite")
+con <- dbConnect(RSQLite::SQLite(), "../data/examples.sqlite")
 ```
 
 List tables in the database
@@ -90,7 +90,7 @@ dbGetQuery(con, "SELECT name, area FROM continents")
 
 General form of SQL statement for a query:
 
-![](sql1.png)
+![](fig/sql1.png)
 
 - **SELECT**: specifies the columns to be selected
 - **FROM**: specifies the table to be queried
