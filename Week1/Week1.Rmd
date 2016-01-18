@@ -8,7 +8,17 @@ output: ioslides_presentation
 
 - Structured Query Language (SQL) is a standardized, widely used language that retrieves and updates data in relational tables and databases.
 - SQL is part of many vendors' products and SQL is everywhere
+- Example of open source SQL databases: MySQL, PostgreSQL, SQLite
+- SAS also comes with **PROC SQL** to run SQL statement for data processing
+- In big data world like Hadoop, SQL like language is also created such as **HIVE** and **PIG** to easily retrive data
 
+## SQL Basics
+
+- **Database**: a collection of data stored in some organized fashion. For SQLite data base, it is a file usually with **.sqlite** extension.
+- **Tables**: a structured file that can store data of specific type
+- **Column**: a single field in a table
+- **Rows**: a record in a table
+- **Primary key**: a column whose values uniquely identify every row in a table
 
 ## How to Query SQL Database
 
@@ -16,6 +26,13 @@ output: ioslides_presentation
 - Run SQL query and return results (very similiar for all databases and is our focus for this class)
 - Disconnect from database
 
+## Why SQLite
+
+- Widely used (e.g. iphone app)
+- Easy to install and use, the database is just a file
+- Minimal configuration needed
+- Can be accessed by many programming languages such as R, Python
+- Our focus is to learn how to write SQL query, which is similar for different products
 
 ## Install SQLite Manager in Firefox
 
