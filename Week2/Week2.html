@@ -314,6 +314,19 @@ insert into two values (2, 5), (3, 6), (4, 9)</pre></li>
   t1.Capital = t3.City</pre></li>
 </ul>
 
+</article></slide><slide class=''><hgroup><h2>Self-join</h2></hgroup><article  id="self-join">
+
+<p>We can join a table to itself to find relations within the table</p>
+
+<ul>
+<li>Latitude difference between each pair of cities in state CA</li>
+</ul>
+
+<pre >select t1.City as City1, t2.City as City2,
+  (t1.Latitude - t2.Latitude)**2
+from uscitycoords t1, uscitycoords t2
+where t1.State = &quot;CA&quot; and t2.State = &quot;CA&quot; and t1.City &lt; t2.City</pre>
+
 </article></slide><slide class=''><hgroup><h2>Many to Many Join</h2></hgroup><article  id="many-to-many-join">
 
 <p>Many to many join means each joining id may have multiple records in both tables. This can generate side effects. We need to make sure to understand what to expect.</p>

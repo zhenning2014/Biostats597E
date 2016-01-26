@@ -1,7 +1,7 @@
 ---
 title: "Biostats 597E"
 subtitle: Week 2 - Introduction to SQL
-output: ioslides_presentation
+output: beamer_presentation
 ---
 
 ## Summarizing Data
@@ -222,6 +222,18 @@ select t1.Name, t1.Capital, t3.Latitude, t3.Longitude
   from unitedstates t1, postalcodes t2, uscitycoords t3
   where t1.Name = t2.Name and t2.Code = t3.State and
   t1.Capital = t3.City
+```
+
+## Self-join
+We can join a table to itself to find relations within the table
+
+- Latitude difference between each pair of cities in state CA 
+
+```
+select t1.City as City1, t2.City as City2,
+  (t1.Latitude - t2.Latitude)**2
+from uscitycoords t1, uscitycoords t2
+where t1.State = "CA" and t2.State = "CA" and t1.City < t2.City
 ```
 
 ## Many to Many Join
