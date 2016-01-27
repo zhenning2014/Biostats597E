@@ -10,6 +10,8 @@ Download the homework 1 database **Homework1/homework1.sqlite** from course webs
 
 ***
 
+You can print and turn in the homework when you come to class. It should contain all codes and partial output.
+
 ### Problem 1 
 
 Using the **countries** data: write a sql statement that finds the names of countries with population at least 2% of the total population.
