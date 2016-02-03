@@ -86,8 +86,55 @@ select a.Name, a.continent,
     on a.Continent = b.Continent
 ```
 
+## Multiple Joins
 
+Problem: Find **coordinates** of **African** cities with **oil reserves**
 
+- Use sub-queries
+```
+select * from worldcitycoords
+  where country in
+     (select Country from oilrsrvs
+        where Country in
+          (select name from countries where Continent = 'Africa'))
+```
 
+- Use joins
+```
+select t1.*
+  from worldcitycoords t1 inner join
+    oilrsrvs t2 on t1.country = t2.country
+    inner join countries t3 on t2.country = t3.name
+    where t3.Continent = 'Africa'
+```
 
+## Combine Tables Vertically
 
+- Joins combine tables horizontally expanding columns
+- We can also combine tables with similar structures (same names, similar data types) vertically to expand rows, similar to **rbind** function in R
+- We use **UNION** to achieve this
+
+```
+SELECT column_name(s) FROM table1
+UNION (ALL)
+SELECT column_name(s) FROM table2
+```
+
+- **UNION** selects only distinct values after combining
+- If we want to keep the duplicate records, we use **UNION ALL**
+- Columns in two tables should have same number of columns in same order with similar data type
+
+## UNION Example
+
+- Find countries with oil production or oil reserve
+```
+SELECT country from oilprod
+UNION
+SELECT country  from oilrsrvs
+```
+
+```
+SELECT country from oilprod
+UNION ALL
+SELECT country  from oilrsrvs
+```

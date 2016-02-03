@@ -177,7 +177,60 @@
   from countries a inner join
        (select Continent, sum(population) as total_population
           from countries group by Continent) b
-    on a.Continent = b.Continent</pre></article></slide>
+    on a.Continent = b.Continent</pre>
+
+</article></slide><slide class=''><hgroup><h2>Multiple Joins</h2></hgroup><article  id="multiple-joins">
+
+<p>Problem: Find <strong>coordinates</strong> of <strong>African</strong> cities with <strong>oil reserves</strong></p>
+
+<ul>
+<li><p>Use sub-queries</p>
+
+<pre >select * from worldcitycoords
+  where country in
+ (select Country from oilrsrvs
+    where Country in
+      (select name from countries where Continent = &#39;Africa&#39;))</pre></li>
+<li><p>Use joins</p>
+
+<pre >select t1.*
+  from worldcitycoords t1 inner join
+oilrsrvs t2 on t1.country = t2.country
+inner join countries t3 on t2.country = t3.name
+where t3.Continent = &#39;Africa&#39;</pre></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Combine Tables Vertically</h2></hgroup><article  id="combine-tables-vertically">
+
+<ul>
+<li>Joins combine tables horizontally expanding columns</li>
+<li>We can also combine tables with similar structures (same names, similar data types) vertically to expand rows, similar to <strong>rbind</strong> function in R</li>
+<li>We use <strong>UNION</strong> to achieve this</li>
+</ul>
+
+<pre >SELECT column_name(s) FROM table1
+UNION (ALL)
+SELECT column_name(s) FROM table2</pre>
+
+<ul>
+<li><strong>UNION</strong> selects only distinct values after combining</li>
+<li>If we want to keep the duplicate records, we use <strong>UNION ALL</strong></li>
+<li>Columns in two tables should have same number of columns in same order with similar data type</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>UNION Example</h2></hgroup><article  id="union-example">
+
+<ul>
+<li><p>Find countries with oil production or oil reserve</p>
+
+<pre >SELECT country from oilprod
+UNION
+SELECT country  from oilrsrvs</pre></li>
+</ul>
+
+<pre >SELECT country from oilprod
+UNION ALL
+SELECT country  from oilrsrvs</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
