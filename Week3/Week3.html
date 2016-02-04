@@ -165,6 +165,11 @@
 <li>Using <strong>oilprod</strong> and <strong>oilrsrvs</strong> to find countries that have oil production but do not have oil reserve</li>
 </ul>
 
+<pre >select t1.country
+from oilprod t1 left join oilrsrvs t2
+on t1.country = t2.country
+where t2.country is null</pre>
+
 </article></slide><slide class=''><hgroup><h2>Combine Join and Sub-query</h2></hgroup><article  id="combine-join-and-sub-query">
 
 <ul>
