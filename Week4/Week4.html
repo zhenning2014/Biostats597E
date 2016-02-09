@@ -215,7 +215,99 @@ select one.*, two.Y as Y2 from one, two where one.X = two.X</pre></li>
 
 <pre >insert into one values (3, 9)</pre>
 
-<p>Are three_table and three_view still same?</p></article></slide>
+<p>Are three_table and three_view still same?</p>
+
+</article></slide><slide class=''><hgroup><h2>SQL in SAS</h2></hgroup><article  id="sql-in-sas">
+
+<p>We can use <strong>PROC SQL</strong> in SAS to execute sql state</p>
+
+<pre >PROC SQL;
+  &lt;SQL STATEMENT&gt;;
+  &lt;SQL STATEMENT&gt;;
+  ...
+QUIT;</pre>
+
+<ul>
+<li>We can specify SAS table, such as <strong>WORK.CARS</strong> as input for <strong>FROM</strong></li>
+<li>We can specify multiple SQL statementes in one <strong>PROC SQL</strong></li>
+<li>In general, we will save query results to a SAS table for further processing by other data steps or procedures</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Examples</h2></hgroup><article  id="examples">
+
+<p>We use freely downloaded SAS Unversity edition.</p>
+
+<ul>
+<li>Use <strong>AIR</strong> data, find mean, min, max, sd of air for each year.</li>
+</ul>
+
+<pre >proc sql;
+  create table year_sum as
+    select year(date)as Year, 
+            mean(air) as mean_air,
+            min(air) as min_air,
+            max(air) as max_air,
+            std(air) as sd_air
+    from sashelp.air
+    group by Year;
+quit;</pre>
+
+<ul>
+<li>This is actually a cleaner and more flexible approach to obtain the statistics than using <strong>PROC MEANS</strong></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Create Macro Variables</h2></hgroup><article  id="create-macro-variables">
+
+<p>We can create macro varaibls using <strong>PROC SQL</strong>. The macro vaiables can be further used by data steps and procedures.</p>
+
+<p>We use <strong>into</strong> in select clause.</p>
+
+<p><strong>Example</strong>: create macro variable for number of rows</p>
+
+<pre >PROC SQL noprint; select count(*) into :n from sashelp.air; quit;
+%put there are &amp;n rows in the data;</pre>
+
+<p>If there are multiple values, then we use <strong>SEPARATE BY</strong> to aggregate the values or select into multiple macro variables.</p>
+
+<pre >PROC SQL noprint;
+  select distinct year(date) into :years separated by &quot;,&quot;
+  from sashelp.air; quit;
+%put The years in data are &amp;years;</pre>
+
+</article></slide><slide class=''><hgroup><h2>Dictionary Tables and Views</h2></hgroup><article  id="dictionary-tables-and-views">
+
+<p>We can dynamically retrieve meta information about the SAS tables such as what tables currently in the system, what variables are in each table.</p>
+
+<ul>
+<li><strong>Dictionary.Columns</strong>: information about columns in tables</li>
+<li><strong>Dictionary.Tables</strong>: information about tables</li>
+<li>For more tables and views, refer to <a href='http://www2.sas.com/proceedings/sugi30/070-30.pdf' title=''>http://www2.sas.com/proceedings/sugi30/070-30.pdf</a></li>
+</ul>
+
+<p><strong>Example</strong>: Find variable information for table sashelp.cars?</p>
+
+<pre >proc sql;
+select *
+from dictionary.columns
+where upcase(libname) = &quot;SASHELP&quot; and upcase(memname) = &quot;CARS&quot;;
+quit;</pre>
+
+</article></slide><slide class=''><hgroup><h2>Example</h2></hgroup><article  id="example">
+
+<p>We can play some trick. <strong>Task</strong>: For each numeric variable in cars, multiply each of them by 10.</p>
+
+<pre >proc sql;
+    select name || &quot;= &quot; || name || &quot;*10;&quot; into :code separated by &quot;&quot;
+    from dictionary.columns
+    where upcase(libname) = &quot;SASHELP&quot;
+        and upcase(memname) = &quot;CARS&quot;
+        and type = &quot;num&quot;;
+quit;
+
+data newdata;
+    set sashelp.cars;
+    &amp;code;
+run;</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
