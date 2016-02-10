@@ -200,7 +200,7 @@ PROC SQL noprint; select count(*) into :n from sashelp.air; quit;
 %put there are &n rows in the data;
 ```
 
-If there are multiple values, then we use **SEPARATE BY** to aggregate the values or select into multiple macro variables.
+If there are multiple values, then we use **SEPARATED BY** to aggregate the values or select into multiple macro variables.
 
 ```
 PROC SQL noprint;

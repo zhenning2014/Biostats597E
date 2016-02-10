@@ -267,7 +267,7 @@ quit;</pre>
 <pre >PROC SQL noprint; select count(*) into :n from sashelp.air; quit;
 %put there are &amp;n rows in the data;</pre>
 
-<p>If there are multiple values, then we use <strong>SEPARATE BY</strong> to aggregate the values or select into multiple macro variables.</p>
+<p>If there are multiple values, then we use <strong>SEPARATED BY</strong> to aggregate the values or select into multiple macro variables.</p>
 
 <pre >PROC SQL noprint;
   select distinct year(date) into :years separated by &quot;,&quot;
