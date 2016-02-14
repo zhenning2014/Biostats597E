@@ -1,0 +1,31 @@
+---
+title: "Homework 1 Solution"
+author: "Biostats597E"
+output: pdf_document
+---
+
+## Problem 1
+
+```
+select name
+  from countries
+  where population >= 0.02 * (select sum(population) from countries)
+```
+
+## Problem 2
+```
+select email
+  from emails
+  group by email
+  having count(*) > 1
+```
+
+## Problem 3
+```
+select t1.Name
+  from salaries t1, salaries t2
+  where t1.ManagerId = t2.Id and t1.Salary > t2.Salary
+```
+
+
+
