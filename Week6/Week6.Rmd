@@ -200,4 +200,12 @@ Refer to ```?regex``` ```?gsub``` ```?grep``` for more details.
 
 There are a lot of more about regular expression not discuessed here, but what we have discussed should be good to handle many situations.
 
+## Exercise
+
+Extract most popular baby names from **babynames.html** file
+
+```
+babynames <- readLines("babynames.html")
+```
+
 
