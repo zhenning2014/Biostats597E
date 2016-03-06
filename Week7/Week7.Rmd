@@ -1,6 +1,6 @@
 ---
 title: "Biostats 597E"
-subtitle: Week 6 - Introduction to Web Scraping
+subtitle: Week 7 - Introduction to Web Scraping
 output: ioslides_presentation
 ---
 

@@ -5,3 +5,4 @@ local/
 *.aux
 *.out
 salary.R
+twitter_setting.R
