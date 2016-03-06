@@ -82,10 +82,25 @@ p_need <- function(skill, text) {
   mean(grepl(pattern, text, ignore.case = TRUE))
 }
 
-skills <- c("sql", "python", "sas", "matlab", "R", "hadoop", "spark")
+skills <- c(".+sql", "python", "sas", "matlab", "R", "hadoop", "spark")
 prob_needs <- sapply(skills, p_need, text = jobsums)
 
 data.frame(skills, prob_needs, row.names = NULL)
 
+# Can you find out what skiils needed to become a statistician?
+sum_skills <- function(jobsums) {
+  data.frame(skills,
+             prob_needs = sapply(skills, p_need, text = jobsums),
+             row.names = NULL)
+}
 
+# make the process a pipeline
+do.call("rbind", 
+        lapply(0:19, function(x)
+          jobsearch(q = "statistician", 
+                    l = "boston, ma", 
+                    start = x))) %>%
+  "[["("url") %>%
+  sapply(job_summary) %>%
+  sum_skills()
 
