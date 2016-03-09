@@ -1,0 +1,32 @@
+---
+title: "Homework 2 Solution"
+author: "Biostats597E"
+output: pdf_document
+---
+
+## Problem 1
+
+```
+select t1.*
+  from customers t1 left join orders t2
+  on t1.Id = t2.CustomerId
+  where t2.CustomerId is null
+```
+
+## Problem 2
+```
+select t1.metrics as metrics, t1.value - t2.value as diff
+from (select * from abtest where trt = 'Treatment') t1 inner join
+(select * from abtest where trt = 'Control') t2
+on t1.metrics = t2.metrics
+```
+
+## Problem 3
+```
+select one.X as X, Y, Z from one left join two on one.X = two.X
+UNION
+select two.X as X, Y, Z from two left join one on one.X = two.X where one.X is null
+```
+
+
+

@@ -1,0 +1,24 @@
+---
+title: "Biostats 597E"
+subtitle: Week 9 - Introduction to SparkR
+output: ioslides_presentation
+---
+
+## What is Spark?
+
+## Install Spark
+
+- Install Java JDK (Google 'Java JDK' to downlod and install)
+- <a href="http://spark.apache.org/downloads.html">Download Spark</a> from its website. You can choose version 1.6.0, package type 'Pre-built for Hadoop 2.6 and later', and Direct Download
+- Unzip the file and save to a location in your disk, for example: **/Users/xgu/spark-1.6.0-bin-hadoop2.6**
+
+## Use Spark in R
+
+Download **Example**:
+
+- Go to http://archive.ics.uci.edu/ml/machine-learning-databases/census1990-mld/ download **USCensus1990.data.txt**
+- Description of the data can be found 
+
+<p>http://archive.ics.uci.edu/ml/datasets/US+Census+Data+%281990%29</p>
+
+See sparkR.R
