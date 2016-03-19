@@ -6,19 +6,28 @@ output: ioslides_presentation
 
 ## What is Spark?
 
+## When Should We Use Spark?
+
+- If data is small (less than a few GB), R package **data.table** and **dplyr** are handy
+- If data is too big to fit in memory: e.g. 1TB
+    * Spark is very useful especially when we have a computing cluster
+    * Data can be stored in distributed file system like Hadoop file system
+    * Spark can be used to parallelize data processing task
+    * Code we write to work in local can be easily used in cluster with minimal modification
+
 ## Install Spark
 
 - Install Java JDK (Google 'Java JDK' to downlod and install)
 - <a href="http://spark.apache.org/downloads.html">Download Spark</a> from its website. You can choose version 1.6.0, package type 'Pre-built for Hadoop 2.6 and later', and Direct Download
 - Unzip the file and save to a location in your disk, for example: **/Users/xgu/spark-1.6.0-bin-hadoop2.6**
+- We may also need to install **rJava** R pacakge
 
 ## Use Spark in R
 
-Download **Example**:
+**Download American Community Survey Data**
 
-- Go to http://archive.ics.uci.edu/ml/machine-learning-databases/census1990-mld/ download **USCensus1990.data.txt**
-- Description of the data can be found 
+- Go to https://www.kaggle.com
+- Click **Datasets** tab
+- Locate **2013 American Community Survey** data to download. You may need to register first.
 
-<p>http://archive.ics.uci.edu/ml/datasets/US+Census+Data+%281990%29</p>
-
-See sparkR.R
+See sparkR_ACS.R

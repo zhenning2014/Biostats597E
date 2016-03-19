@@ -86,30 +86,40 @@
 
 <slide class=''><hgroup><h2>What is Spark?</h2></hgroup><article  id="what-is-spark">
 
+</article></slide><slide class=''><hgroup><h2>When Should We Use Spark?</h2></hgroup><article  id="when-should-we-use-spark">
+
+<ul>
+<li>If data is small (less than a few GB), R package <strong>data.table</strong> and <strong>dplyr</strong> are handy</li>
+<li>If data is too big to fit in memory: e.g. 1TB
+
+<ul>
+<li>Spark is very useful especially when we have a computing cluster</li>
+<li>Data can be stored in distributed file system like Hadoop file system</li>
+<li>Spark can be used to parallelize data processing task</li>
+<li>Code we write to work in local can be easily used in cluster with minimal modification</li>
+</ul></li>
+</ul>
+
 </article></slide><slide class=''><hgroup><h2>Install Spark</h2></hgroup><article  id="install-spark">
 
 <ul>
 <li>Install Java JDK (Google &#39;Java JDK&#39; to downlod and install)</li>
 <li><a href="http://spark.apache.org/downloads.html">Download Spark</a> from its website. You can choose version 1.6.0, package type &#39;Pre-built for Hadoop 2.6 and later&#39;, and Direct Download</li>
 <li>Unzip the file and save to a location in your disk, for example: <strong>/Users/xgu/spark-1.6.0-bin-hadoop2.6</strong></li>
+<li>We may also need to install <strong>rJava</strong> R pacakge</li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>Use Spark in R</h2></hgroup><article  id="use-spark-in-r">
 
-<p>Download <strong>Example</strong>:</p>
+<p><strong>Download American Community Survey Data</strong></p>
 
 <ul>
-<li>Go to <a href='http://archive.ics.uci.edu/ml/machine-learning-databases/census1990-mld/' title=''>http://archive.ics.uci.edu/ml/machine-learning-databases/census1990-mld/</a> download <strong>USCensus1990.data.txt</strong></li>
-<li>Description of the data can be found</li>
+<li>Go to <a href='https://www.kaggle.com' title=''>https://www.kaggle.com</a></li>
+<li>Click <strong>Datasets</strong> tab</li>
+<li>Locate <strong>2013 American Community Survey</strong> data to download. You may need to register first.</li>
 </ul>
 
-<p>
-
-<a href='http://archive.ics.uci.edu/ml/datasets/US+Census+Data+%281990%29' title=''>http://archive.ics.uci.edu/ml/datasets/US+Census+Data+%281990%29</a>
-
-</p>
-
-<p>See sparkR.R</p></article></slide>
+<p>See sparkR_ACS.R</p></article></slide>
 
 
   <slide class="backdrop"></slide>

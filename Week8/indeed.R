@@ -57,7 +57,7 @@ jobsearch(q = "data scientist", l = "boston, ma", start = 1)
 
 # extract 100 results a time
 ds_job <- do.call("rbind", 
-                  lapply(0:9, function(x)
+                  lapply(0:29, function(x)
                     jobsearch(q = "data scientist", 
                               l = "boston, ma", 
                               start = x)))
