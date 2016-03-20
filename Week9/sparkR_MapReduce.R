@@ -45,7 +45,10 @@ map_wc <- function(line) {
   lapply(words, function(word) list(word, 1))
 }
 
-umass1 <- SparkR:::flatMap(umass, map_wc)   # map to bag of words
+# map to bag of words
+# map function: one record to one record
+# flatMap funcion: one record to multiple records
+umass1 <- SparkR:::flatMap(umass, map_wc) 
 
 # For any two records with same key, perform reduce function to one new record
 # e.g. ('umass', 1) and ('umass', 1) reduce to ('umass', 2)
