@@ -1,10 +1,10 @@
 # install.packages("twitteR")
 # Set up twitter authentication------------------------------------------------
 library(twitteR)
-consumer_key <- "LcBhcrmm74KC8GOuEiMFVOekB"
-consumer_secret <- "uic09NpLTf43cUHvMFB4h8Qs7NrSkJp9GBkUA35t3cf6NfRT3l"
-access_token <- "960801247-mGp6tdkT3j1iJ3y0uo1Z8Sjr9WzaUShMIE2HY8FY"
-access_secret <- "080efhTLjPCSxXPlZzLRxmYnEoQXxxcKNPnpMkmtkzMn6"
+consumer_key <- "******"
+consumer_secret <- "*****"
+access_token <- "*****"
+access_secret <- "*****"
 
 setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 
@@ -13,7 +13,7 @@ setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 getCurRateLimitInfo()
 
 # Search with a given string
-umass <- searchTwitter("Umass Amherst")
+umass <- searchTwitter("Umass Amherst", 10)
 
 # Metioning twitter account UmassAmherst
 umass1 <- searchTwitter("@UmassAmherst")
