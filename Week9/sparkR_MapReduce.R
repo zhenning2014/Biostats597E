@@ -56,7 +56,7 @@ umass1 <- SparkR:::flatMap(umass, map_wc)
 
 # For any two records with same key, perform reduce function to one new record
 # e.g. ('umass', 1) and ('umass', 1) reduce to ('umass', 2)
-word_counts <- SparkR:::reduceByKey(umass1, "+", 10) %>% collect()
+word_counts <- SparkR:::reduceByKey(umass1, reduce_fun, 10) %>% collect()
 
 # process the results in R
 wordc <- sapply(word_counts, function(x) x[[2]])
