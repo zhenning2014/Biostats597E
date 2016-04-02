@@ -11,6 +11,7 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
        textInput("search", "Input search string"),
+       numericInput("numtweets", "Number of tweets", 100, 1, 1000),
        submitButton("Submit")
     ),
     

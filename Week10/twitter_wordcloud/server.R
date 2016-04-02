@@ -17,7 +17,7 @@ setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 shinyServer(function(input, output) {
    
   output$wordcloud <- renderPlot({
-    tt <- searchTwitter(input$search, 100)
+    tt <- searchTwitter(input$search, input$numtweets)
     tt <- sapply(tt, function(x) x$text)
     tt <- iconv(tt, "UTF-8", "ASCII", sub="")
     # Use tm to clean up texts
@@ -27,7 +27,8 @@ shinyServer(function(input, output) {
     tt <- tm_map(tt, removePunctuation)
     ## remove stop words like me my
     tt <- tm_map(tt, removeWords, stopwords('english'))
-    tt <- tm_map(tt, removeWords, input$search)
+    tt <- tm_map(tt, content_transformer(tolower))
+    tt <- tm_map(tt, removeWords, tolower(input$search))
     ## words stemming (walking -> walk)
     #tt <- tm_map(tt, stemDocument)
     # word cloud plot
