@@ -1,0 +1,9 @@
+{
+    "path" : "~/Desktop/dcr/inst/example/stocks",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
