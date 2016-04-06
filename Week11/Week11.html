@@ -92,6 +92,61 @@
 <li>User can choose stock by stock ticket</li>
 <li>User can choose date range of the stock&#39;s time series</li>
 <li>User can choose chart type from: auto, candlesticks, matchsticks, bars, lines</li>
+</ul>
+
+<p>see stockplot example</p>
+
+</article></slide><slide class=''><hgroup><h2>Deploy Shiny App</h2></hgroup><article  id="deploy-shiny-app">
+
+<p>Shiny app can be deployed to free server <strong>shinyapps.io</strong></p>
+
+<ul>
+<li>Instal package: install.packages(&#39;rsconnect&#39;)</li>
+<li>Open shiny app and make sure it runs</li>
+<li>Go to www.shinyapps.io to register/login</li>
+<li>Go to Tokens &gt;&gt; Show &gt;&gt; Show Secret &gt;&gt; Copy the code</li>
+<li>Run the copied code in Rstudio</li>
+<li><p>Deploy</p>
+
+<pre >rsconnect::deployApp()</pre></li>
+<li><p>We can view the shiny app at &lt;account&gt;.shinyapps.io/&lt;app&gt;</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Deploy Shiny App to Cloud</h2></hgroup><article  id="deploy-shiny-app-to-cloud">
+
+<p>We can build our own Shiny server in cloud such as AWS or Digital Ocean.</p>
+
+<p>Digital Ocean is cheap with only $5 a month to get a fully functional remote server.</p>
+
+<ul>
+<li>Register an account in Digital ocean.</li>
+<li>Log in &gt;&gt; Create Droplet</li>
+<li>Click Tab One-click Apps &gt;&gt; Choose image <strong>Docker 1.10.3 on 14.04</strong></li>
+<li>In Choose a Size, choose the cheapest one ($5 a month)</li>
+<li>Choose a data center, such as New York</li>
+<li>Add SSH Key of your machine for remote access</li>
+<li>Create</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Deploy Shiny App to Cloud</h2></hgroup><article  id="deploy-shiny-app-to-cloud-1">
+
+<ul>
+<li>Click the server name to manager the machine</li>
+<li><p>Check for ip address and access to the machine using terminal</p>
+
+<pre >ssh root@your.ip.address</pre></li>
+<li><p>Download Docker Image for shiny:</p>
+
+<pre >docker pull ustcgxd/shiny</pre></li>
+<li><p>We can use git to download some shiny apps</p>
+
+<pre >git clone https://github.com/XiangdongGu/Biostats597E.git</pre></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Deploy Shiny App to Cloud</h2></hgroup><article  id="deploy-shiny-app-to-cloud-2">
+
+<ul>
+<li>We can put all Shiny app folders into same folder, then Shiny server can run all of them</li>
 </ul></article></slide>
 
 
