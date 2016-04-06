@@ -64,8 +64,20 @@ git clone https://github.com/XiangdongGu/Biostats597E.git
 - We can put all Shiny app folders into same folder, then Shiny server can run all of them
 - Here we use folder Biostats597E/Week11/apps as Shiny server folder
 
+```
+docker run --name shiny -p 3838:3838 -v \
+/root/Biostats597E/Week11/apps:/srv/shiny-server -d ustcgxd/shiny
+```
 
+- We can access the server at: ip.address:3838
 
+- Stop the server: docker stop shiny
+
+- Restart the server: docker start shiny
+
+## Deploy Shiny App to Cloud
+
+Make sure to delete the server if it is no longer needed. Otherwise it will charge $5 a month.
 
 
 
