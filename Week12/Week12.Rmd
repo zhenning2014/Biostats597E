@@ -84,6 +84,10 @@ install()
 
 We can host the package in Github and then others can install it
 
+```
+install_github("XiangdongGu/Biostats597E", subdir = "Week12/indeed")
+```
 
+Lastly, we can also release to CRAN, which might have more restriction on package files' specification.
 
 
