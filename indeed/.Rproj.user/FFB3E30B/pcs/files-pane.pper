@@ -1,0 +1,9 @@
+{
+    "path" : "~/Desktop/indeed",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
