@@ -1,0 +1,89 @@
+---
+title: "Biostats 597E"
+subtitle: Week 12 - Introduction to Writing R Packages
+output: ioslides_presentation
+---
+
+## Why Writing R Package?
+
+- Make your R codes reproducible and reusable
+- Easy to load the functions you have developed: library(pkg)
+- Easily share/distribute the R codes you developed
+- Allow others easily download and use your R codes
+- Package can bundle together code, data, documentation, and tests
+- Contributing your R package to open source community can make your resume look better
+
+## R Package Structure
+
+- Code folder: R/
+- Package metafile: DESCRIPTION
+- Documentation: man/
+- Namespaces: NAMESPACE
+- Data: data/
+- Compiled code: src/
+- Installed file: inst/
+
+We can download any package source from CRAN to see the structure
+
+## devtools Package
+
+The devtools package makes R package development process much easier.
+
+We can install **devtools** from CRAN.
+
+Documentation and NAMESPACE can be generated automatically
+
+We will show the steps using devtools to build a simple R package to do indeed.com web scrapping 
+
+## Create R package Template
+
+Rstudio >> File >> New project >> New directory >> R package
+
+Give the package a name
+
+## Write R Functions
+
+We can put the .R files containing R functions we want to put into the R package under folder R/
+
+see indeed.R
+
+We can load the functions
+
+```
+library(devtools)
+load_all()
+```
+
+## Write DESCRIPTION File
+
+We can modify on the template file
+
+To add dependent packages, we can use Imports
+
+## Document The Package
+
+We can use Roxygen to generate different fields before each function
+
+- **\@param**: describes function's input parameter
+- **\@examples**: provides R code examaple
+- **\@return**: provides what output returned by the function
+
+etc
+
+To document the functions and automatically generate documentation files
+
+```
+document()
+```
+
+## Install the Package
+
+```
+install()
+```
+
+We can host the package in Github and then others can install it
+
+
+
+
